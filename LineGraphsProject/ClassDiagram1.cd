@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LineGraphsProject.XmlGraphProvider">
+    <Position X="1" Y="10" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>XmlGraphProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LineGraphsProject.FileLineGraphProvider">
+    <Position X="1.25" Y="6.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAIACAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>FileLineGraphProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="1.292" />
+  </Class>
+  <Class Name="LineGraphsProject.FunctionGraphProvider" BaseTypeListCollapsed="true">
+    <Position X="8" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FunctionGraphProvider.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="function" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LineGraphsProject.ImageGraphProvider">
+    <Position X="3" Y="10" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>ImageGraphProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LineGraphsProject.LineGraphDrawer">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAgAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LineGraphDrawer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="provider" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LineGraphsProject.MainForm">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="addGraphBtn" Hidden="true" />
+      <Method Name="addGraphBtn_Click" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AgAABAAAQCAAAAAAAgCAAAACAAACAAAAAAQBAAAAAAA=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="drawers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="LineGraphsProject.PathInputForm">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="pathBox" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAACAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>PathInputForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LineGraphsProject.Polynomial" BaseTypeListCollapsed="true">
+    <Position X="11" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Polynomial.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.146" />
+  </Class>
+  <Class Name="LineGraphsProject.AddGraphForm">
+    <Position X="11" Y="2.25" Width="1.5" />
+    <Members>
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACAAAAAAAACAAAACAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>AddGraphForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="LineGraphsProject.IFunction">
+    <Position X="11" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>IFunction.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="LineGraphsProject.ILineGraphProvider">
+    <Position X="2.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ILineGraphProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,6 +1,6 @@
 ﻿namespace LineGraphsProject
 {
-    partial class Form1
+    partial class PathInputForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.pathBox = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
+            // 
+            // pathBox
+            // 
+            this.pathBox.Location = new System.Drawing.Point(33, 91);
+            this.pathBox.Name = "pathBox";
+            this.pathBox.Size = new System.Drawing.Size(114, 20);
+            this.pathBox.TabIndex = 0;
+            // 
+            // PathInputForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.pathBox);
+            this.Name = "PathInputForm";
+            this.Text = "PathInputForm";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox pathBox;
     }
 }
-

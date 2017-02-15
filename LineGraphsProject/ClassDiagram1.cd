@@ -34,7 +34,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="LineGraphsProject.LineGraphDrawer">
-    <Position X="6.5" Y="0.5" Width="1.5" />
+    <Position X="7.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAAAAgAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>LineGraphDrawer.cs</FileName>
@@ -44,7 +44,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="LineGraphsProject.MainForm">
-    <Position X="9.25" Y="0.5" Width="1.5" />
+    <Position X="9.75" Y="0.5" Width="1.5" />
     <Members>
       <Field Name="addGraphBtn" Hidden="true" />
       <Method Name="addGraphBtn_Click" Hidden="true" />
@@ -61,7 +61,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="LineGraphsProject.PathInputForm">
-    <Position X="11" Y="0.5" Width="1.5" />
+    <Position X="3.5" Y="7.25" Width="1.5" />
     <Members>
       <Field Name="components" Hidden="true" />
       <Method Name="Dispose" Hidden="true" />
@@ -82,7 +82,7 @@
     <Lollipop Position="0.146" />
   </Class>
   <Class Name="LineGraphsProject.AddGraphForm">
-    <Position X="11" Y="2.25" Width="1.5" />
+    <Position X="5.5" Y="2" Width="1.5" />
     <Members>
       <Field Name="components" Hidden="true" />
       <Method Name="Dispose" Hidden="true" />
@@ -91,6 +91,21 @@
     <TypeIdentifier>
       <HashCode>AAAAAAQAACAAAAAAAACAAAACAAAAAAAAAAAEAAAAAAA=</HashCode>
       <FileName>AddGraphForm.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="provider" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LineGraphsProject.PolynomialInputForm">
+    <Position X="9" Y="6.5" Width="1.75" />
+    <Members>
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACEAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PolynomialInputForm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="LineGraphsProject.IFunction">
@@ -101,7 +116,7 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="LineGraphsProject.ILineGraphProvider">
-    <Position X="2.5" Y="0.5" Width="1.75" />
+    <Position X="2.75" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ILineGraphProvider.cs</FileName>

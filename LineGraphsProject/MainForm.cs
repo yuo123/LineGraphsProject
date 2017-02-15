@@ -40,8 +40,7 @@ namespace LineGraphsProject
         {
             AddGraphForm form = new AddGraphForm();
             form.ShowDialog(this);
-            ILineGraphProvider prov = form.GetProvider();
-            //TODO: implement using prov
+            this.drawers.Add(form.GetDrawer());
         }
 
         /// <summary>

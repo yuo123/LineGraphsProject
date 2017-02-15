@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LineGraphsProject
 {
-    public class FunctionGraphProvider : ILineGraphProvider
+    public partial class PolynomialInputForm : Form
     {
-        private IFunction function;
-
-        public void AskForParameters()
+        public PolynomialInputForm()
         {
-            //TODO: implement
+            InitializeComponent();
         }
 
-        public IEnumerable<PointF> GetPoints(float minDiscernableStep)
+        public Polynomial GetPolynomial()
         {
             //TODO: implement
             return null;

@@ -15,7 +15,7 @@ namespace LineGraphsProject
     /// </summary>
     public partial class AddGraphForm : Form
     {
-        private ILineGraphProvider provider;
+        private LineGraphDrawer drawer;
 
         public AddGraphForm()
         {
@@ -23,9 +23,9 @@ namespace LineGraphsProject
             //TODO: implement from some click event
         }
 
-        public ILineGraphProvider GetProvider()
+        public LineGraphDrawer GetDrawer()
         {
-            return this.provider;
+            return this.drawer;
         }
     }
 }

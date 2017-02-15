@@ -22,7 +22,7 @@ namespace LineGraphsProject
 
         public abstract IEnumerable<PointF> LoadFile(string path);
 
-        public IEnumerable<PointF> GetPoints()
+        public IEnumerable<PointF> GetPoints(float minDiscernableStep)
         {
             return this.points;
         }

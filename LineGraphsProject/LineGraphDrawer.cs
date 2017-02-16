@@ -19,6 +19,7 @@ namespace LineGraphsProject
         public LineGraphDrawer(ILineGraphProvider provider)
         {
             this.provider = provider;
+            provider.AskForParameters();
         }
 
         public void Draw(Graphics gr, Size screenSize)

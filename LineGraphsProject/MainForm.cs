@@ -14,6 +14,11 @@ namespace LineGraphsProject
     {
         private List<LineGraphDrawer> drawers;
 
+        public Size GetDrawingAreaSize()
+        {
+            return this.drawingArea.ClientSize;
+        }
+
         public MainForm()
         {
             InitializeComponent();

@@ -16,7 +16,7 @@ namespace LineGraphsProject
         private float scaleX;
         private float scaleY;
 
-        public LineGraphDrawer(ILineGraphProvider provider)
+        public LineGraphDrawer(ILineGraphProvider provider, float scaleX, float scaleY)
         {
             this.provider = provider;
             provider.AskForParameters();

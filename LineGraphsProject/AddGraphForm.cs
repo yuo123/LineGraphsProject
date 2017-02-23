@@ -66,9 +66,28 @@ namespace LineGraphsProject
 
         private void addBtn_Click(object sender, EventArgs e)
         {
+            float scaleX;
+            float scaleY;
+            if (byScalePanel.Enabled)
+            {
+                scaleX = (float)this.xScale.Value;
+                scaleY = (float)this.yScale.Value;
+            }
+            else
+            {
+                Size drawingSize = ((MainForm)this.Owner).GetDrawingAreaSize();
+                scaleX = (float)(this.maxX.Value - this.minX.Value) / drawingSize.Width;
+                scaleY = (float)(this.maxY.Value - this.minY.Value) / drawingSize.Height;
+            }
             //the created instance can always be cast to ILineGraphProvider, because the items in sourceBox.DataSource are only added 
             //by AddProviderType<T>() where T : ILineGraphProvider
-            this.drawer = new LineGraphDrawer((ILineGraphProvider)Activator.CreateInstance((Type)sourceBox.SelectedItem));
+            this.drawer = new LineGraphDrawer((ILineGraphProvider)Activator.CreateInstance((Type)sourceBox.SelectedItem), scaleX, scaleY);
+        }
+
+        private void byScaleBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            byScalePanel.Enabled = byScaleBtn.Checked;
+            byRangePanel.Enabled = byRangeBtn.Checked;
         }
     }
 }

@@ -43,8 +43,8 @@
             this.maxY = new System.Windows.Forms.NumericUpDown();
             this.byRangePanel = new System.Windows.Forms.Panel();
             this.byScalePanel = new System.Windows.Forms.Panel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.yScale = new System.Windows.Forms.NumericUpDown();
+            this.xScale = new System.Windows.Forms.NumericUpDown();
             this.byScaleBtn = new System.Windows.Forms.RadioButton();
             this.byRangeBtn = new System.Windows.Forms.RadioButton();
             label1 = new System.Windows.Forms.Label();
@@ -60,33 +60,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.maxY)).BeginInit();
             this.byRangePanel.SuspendLayout();
             this.byScalePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yScale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xScale)).BeginInit();
             this.SuspendLayout();
-            // 
-            // sourceBox
-            // 
-            this.sourceBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.sourceBox.FormattingEnabled = true;
-            this.sourceBox.Location = new System.Drawing.Point(84, 6);
-            this.sourceBox.Name = "sourceBox";
-            this.sourceBox.Size = new System.Drawing.Size(163, 21);
-            this.sourceBox.TabIndex = 0;
-            // 
-            // addBtn
-            // 
-            this.addBtn.Location = new System.Drawing.Point(172, 227);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(74, 26);
-            this.addBtn.TabIndex = 1;
-            this.addBtn.Text = "Add";
-            this.addBtn.UseVisualStyleBackColor = true;
-            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(12, 9);
+            label1.Location = new System.Drawing.Point(9, 9);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(66, 13);
             label1.TabIndex = 2;
@@ -95,7 +76,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(3, 13);
+            label2.Location = new System.Drawing.Point(3, 5);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(52, 13);
             label2.TabIndex = 3;
@@ -104,16 +85,71 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(141, 13);
+            label3.Location = new System.Drawing.Point(138, 5);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(20, 13);
             label3.TabIndex = 4;
             label3.Text = "To";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(138, 31);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(20, 13);
+            label4.TabIndex = 8;
+            label4.Text = "To";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(3, 31);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(52, 13);
+            label5.TabIndex = 7;
+            label5.Text = "Y Range:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(3, 5);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(47, 13);
+            label6.TabIndex = 11;
+            label6.Text = "X Scale:";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(3, 31);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(47, 13);
+            label9.TabIndex = 14;
+            label9.Text = "Y Scale:";
+            // 
+            // sourceBox
+            // 
+            this.sourceBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sourceBox.FormattingEnabled = true;
+            this.sourceBox.Location = new System.Drawing.Point(81, 6);
+            this.sourceBox.Name = "sourceBox";
+            this.sourceBox.Size = new System.Drawing.Size(163, 21);
+            this.sourceBox.TabIndex = 0;
+            // 
+            // addBtn
+            // 
+            this.addBtn.Location = new System.Drawing.Point(172, 207);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(74, 26);
+            this.addBtn.TabIndex = 1;
+            this.addBtn.Text = "Add";
+            this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
+            // 
             // minX
             // 
             this.minX.DecimalPlaces = 2;
-            this.minX.Location = new System.Drawing.Point(61, 11);
+            this.minX.Location = new System.Drawing.Point(58, 3);
             this.minX.Maximum = new decimal(new int[] {
             -1,
             -1,
@@ -126,7 +162,7 @@
             // maxX
             // 
             this.maxX.DecimalPlaces = 2;
-            this.maxX.Location = new System.Drawing.Point(167, 11);
+            this.maxX.Location = new System.Drawing.Point(164, 3);
             this.maxX.Maximum = new decimal(new int[] {
             -1,
             -1,
@@ -139,7 +175,7 @@
             // minY
             // 
             this.minY.DecimalPlaces = 2;
-            this.minY.Location = new System.Drawing.Point(61, 37);
+            this.minY.Location = new System.Drawing.Point(58, 29);
             this.minY.Maximum = new decimal(new int[] {
             -1,
             -1,
@@ -152,7 +188,7 @@
             // maxY
             // 
             this.maxY.DecimalPlaces = 2;
-            this.maxY.Location = new System.Drawing.Point(167, 37);
+            this.maxY.Location = new System.Drawing.Point(164, 29);
             this.maxY.Maximum = new decimal(new int[] {
             -1,
             -1,
@@ -161,24 +197,6 @@
             this.maxY.Name = "maxY";
             this.maxY.Size = new System.Drawing.Size(74, 20);
             this.maxY.TabIndex = 9;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(141, 39);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(20, 13);
-            label4.TabIndex = 8;
-            label4.Text = "To";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(3, 39);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(52, 13);
-            label5.TabIndex = 7;
-            label5.Text = "Y Range:";
             // 
             // byRangePanel
             // 
@@ -190,7 +208,7 @@
             this.byRangePanel.Controls.Add(label4);
             this.byRangePanel.Controls.Add(this.maxX);
             this.byRangePanel.Controls.Add(label5);
-            this.byRangePanel.Location = new System.Drawing.Point(6, 143);
+            this.byRangePanel.Location = new System.Drawing.Point(6, 131);
             this.byRangePanel.Name = "byRangePanel";
             this.byRangePanel.Size = new System.Drawing.Size(255, 67);
             this.byRangePanel.TabIndex = 11;
@@ -198,57 +216,40 @@
             // byScalePanel
             // 
             this.byScalePanel.Controls.Add(label6);
-            this.byScalePanel.Controls.Add(this.numericUpDown1);
-            this.byScalePanel.Controls.Add(this.numericUpDown2);
+            this.byScalePanel.Controls.Add(this.yScale);
+            this.byScalePanel.Controls.Add(this.xScale);
             this.byScalePanel.Controls.Add(label9);
+            this.byScalePanel.Enabled = false;
             this.byScalePanel.Location = new System.Drawing.Point(6, 53);
             this.byScalePanel.Name = "byScalePanel";
-            this.byScalePanel.Size = new System.Drawing.Size(255, 61);
+            this.byScalePanel.Size = new System.Drawing.Size(255, 49);
             this.byScalePanel.TabIndex = 12;
             // 
-            // label6
+            // yScale
             // 
-            label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(6, 13);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(47, 13);
-            label6.TabIndex = 11;
-            label6.Text = "X Scale:";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Location = new System.Drawing.Point(61, 37);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.yScale.DecimalPlaces = 2;
+            this.yScale.Location = new System.Drawing.Point(58, 29);
+            this.yScale.Maximum = new decimal(new int[] {
             -1,
             -1,
             -1,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(74, 20);
-            this.numericUpDown1.TabIndex = 16;
+            this.yScale.Name = "yScale";
+            this.yScale.Size = new System.Drawing.Size(74, 20);
+            this.yScale.TabIndex = 16;
             // 
-            // numericUpDown2
+            // xScale
             // 
-            this.numericUpDown2.DecimalPlaces = 2;
-            this.numericUpDown2.Location = new System.Drawing.Point(61, 11);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.xScale.DecimalPlaces = 2;
+            this.xScale.Location = new System.Drawing.Point(58, 3);
+            this.xScale.Maximum = new decimal(new int[] {
             -1,
             -1,
             -1,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(74, 20);
-            this.numericUpDown2.TabIndex = 13;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(6, 39);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(47, 13);
-            label9.TabIndex = 14;
-            label9.Text = "Y Scale:";
+            this.xScale.Name = "xScale";
+            this.xScale.Size = new System.Drawing.Size(74, 20);
+            this.xScale.TabIndex = 13;
             // 
             // byScaleBtn
             // 
@@ -260,11 +261,13 @@
             this.byScaleBtn.TabStop = true;
             this.byScaleBtn.Text = "By Scale:";
             this.byScaleBtn.UseVisualStyleBackColor = true;
+            this.byScaleBtn.CheckedChanged += new System.EventHandler(this.byScaleBtn_CheckedChanged);
             // 
             // byRangeBtn
             // 
             this.byRangeBtn.AutoSize = true;
-            this.byRangeBtn.Location = new System.Drawing.Point(6, 120);
+            this.byRangeBtn.Checked = true;
+            this.byRangeBtn.Location = new System.Drawing.Point(6, 108);
             this.byRangeBtn.Name = "byRangeBtn";
             this.byRangeBtn.Size = new System.Drawing.Size(75, 17);
             this.byRangeBtn.TabIndex = 14;
@@ -276,7 +279,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(258, 265);
+            this.ClientSize = new System.Drawing.Size(258, 241);
             this.Controls.Add(this.byRangeBtn);
             this.Controls.Add(this.byScaleBtn);
             this.Controls.Add(this.byScalePanel);
@@ -294,8 +297,8 @@
             this.byRangePanel.PerformLayout();
             this.byScalePanel.ResumeLayout(false);
             this.byScalePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yScale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xScale)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,8 +314,8 @@
         private System.Windows.Forms.NumericUpDown maxY;
         private System.Windows.Forms.Panel byRangePanel;
         private System.Windows.Forms.Panel byScalePanel;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown yScale;
+        private System.Windows.Forms.NumericUpDown xScale;
         private System.Windows.Forms.RadioButton byScaleBtn;
         private System.Windows.Forms.RadioButton byRangeBtn;
 

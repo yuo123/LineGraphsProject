@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace LineGraphsProject
 {
@@ -24,11 +25,17 @@ namespace LineGraphsProject
             provider.AskForParameters();
         }
 
-        public void Draw(Graphics gr, Size screenSize)
+        public void Draw(Graphics gr, int drawingWidth)
         {
+            GraphicsState state = gr.Save();
             gr.ScaleTransform(this.scaleX, this.scaleY);
-            //TODO: implement
-            gr.ResetTransform();
+            PointF[] range = new PointF[] { new PointF(0, 0), new PointF(drawingWidth, 0) };
+            gr.TransformPoints(CoordinateSpace.World, CoordinateSpace.Page, range);
+            foreach (PointF point in this.provider.GetPoints(range[0].X, range[1].X, 1))
+            {
+
+            }
+            gr.Restore(state);
         }
     }
 }

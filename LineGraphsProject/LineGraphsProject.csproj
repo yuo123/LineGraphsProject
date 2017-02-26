@@ -52,6 +52,9 @@
     <Compile Include="AddGraphForm.Designer.cs">
       <DependentUpon>AddGraphForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ColorSelectionButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FileLineGraphProvider.cs" />
     <Compile Include="IFunction.cs" />
     <Compile Include="MainForm.cs">

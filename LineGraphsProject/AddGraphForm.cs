@@ -57,6 +57,7 @@ namespace LineGraphsProject
             AddProviderType<ImageGraphProvider>();
             AddProviderType<XmlGraphProvider>();
             AddProviderType<FunctionGraphProvider>();
+            AddProviderType<TestGraphProvider>();
         }
 
         /// <summary>
@@ -77,11 +78,16 @@ namespace LineGraphsProject
         private void addBtn_Click(object sender, EventArgs e)
         {
             float scaleX = (float)this.xScale.Value;
+            if (scaleX == 0)
+                scaleX = 1f;
             float scaleY = (float)this.yScale.Value;
+            if (scaleY == 0)
+                scaleY = 1f;
 
             //the created instance can always be cast to ILineGraphProvider, because the items in sourceBox.DataSource are only added 
             //by AddProviderType<T>() where T : ILineGraphProvider
             this.drawer = new LineGraphDrawer((ILineGraphProvider)Activator.CreateInstance((Type)sourceBox.SelectedItem), scaleX, scaleY, this.colorBtn.BackColor);
+            this.Close();
         }
     }
 }

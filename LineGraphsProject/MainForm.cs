@@ -53,7 +53,8 @@ namespace LineGraphsProject
 
             //center the graphics object on the origin, and scale it
             e.Graphics.TranslateTransform(this.origin.X, this.origin.Y);
-            e.Graphics.ScaleTransform(scale.Width, scale.Height);
+            //scaling by -Height to invert the y-axis
+            e.Graphics.ScaleTransform(scale.Width, -scale.Height);
 
             //draw graphs
             foreach (LineGraphDrawer drawer in this.drawers)
@@ -126,6 +127,7 @@ namespace LineGraphsProject
             AddGraphForm form = new AddGraphForm();
             form.ShowDialog(this);
             this.drawers.Add(form.GetDrawer());
+            drawingArea.Invalidate();
         }
 
         /// <summary>

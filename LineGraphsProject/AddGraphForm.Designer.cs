@@ -54,6 +54,24 @@
             label1.TabIndex = 2;
             label1.Text = "Graph Type:";
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(9, 82);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(47, 13);
+            label9.TabIndex = 14;
+            label9.Text = "Y Scale:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(9, 56);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(47, 13);
+            label6.TabIndex = 11;
+            label6.Text = "X Scale:";
+            // 
             // sourceBox
             // 
             this.sourceBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -74,15 +92,6 @@
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(9, 82);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(47, 13);
-            label9.TabIndex = 14;
-            label9.Text = "Y Scale:";
-            // 
             // xScale
             // 
             this.xScale.DecimalPlaces = 2;
@@ -95,6 +104,11 @@
             this.xScale.Name = "xScale";
             this.xScale.Size = new System.Drawing.Size(74, 20);
             this.xScale.TabIndex = 13;
+            this.xScale.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label2
             // 
@@ -117,15 +131,11 @@
             this.yScale.Name = "yScale";
             this.yScale.Size = new System.Drawing.Size(74, 20);
             this.yScale.TabIndex = 16;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(9, 56);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(47, 13);
-            label6.TabIndex = 11;
-            label6.Text = "X Scale:";
+            this.yScale.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // colorBtn
             // 

@@ -45,6 +45,7 @@ namespace LineGraphsProject
                     graph.AddLine(last, point);
                 last = point;
             }
+            gr.DrawPath(new Pen(this.color), graph);
             gr.Restore(state);
         }
     }

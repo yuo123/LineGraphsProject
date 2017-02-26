@@ -22,18 +22,28 @@ namespace LineGraphsProject
         {
             this.provider = provider;
             this.color = color;
+            this.scaleX = scaleX;
+            this.scaleY = scaleY;
             provider.AskForParameters();
         }
 
-        public void Draw(Graphics gr, int drawingWidth)
+        public void Draw(Graphics gr, int drawingWidth, int originX)
         {
             GraphicsState state = gr.Save();
             gr.ScaleTransform(this.scaleX, this.scaleY);
-            PointF[] range = new PointF[] { new PointF(0, 0), new PointF(drawingWidth, 0) };
+            //find relevant X values in graph space
+            //first point for minX, second for maxX, third for minDiscernableStep
+            PointF[] range = new PointF[] { new PointF(0, 0), new PointF(drawingWidth, 0), new PointF(originX + 1, 0) };
+            //World = graph, Page = form
             gr.TransformPoints(CoordinateSpace.World, CoordinateSpace.Page, range);
-            foreach (PointF point in this.provider.GetPoints(range[0].X, range[1].X, 1))
+            //GraphicsPath is used to draw a continuous line
+            GraphicsPath graph = new GraphicsPath();
+            PointF last = new PointF(float.NaN, float.NaN);
+            foreach (PointF point in this.provider.GetPoints(range[0].X, range[1].X, range[2].X))
             {
-
+                if (!float.IsNaN(last.X) && point.X >= range[0].X && last.X <= range[1].X)
+                    graph.AddLine(last, point);
+                last = point;
             }
             gr.Restore(state);
         }

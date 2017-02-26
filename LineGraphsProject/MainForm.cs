@@ -13,7 +13,7 @@ namespace LineGraphsProject
     public partial class MainForm : Form
     {
         private List<LineGraphDrawer> drawers;
-        private PointF origin;
+        private Point origin;
         private SizeF scale;
 
         public Size GetDrawingAreaSize()
@@ -25,7 +25,7 @@ namespace LineGraphsProject
         {
             InitializeComponent();
             //initialize the origin to the center of the drawing area
-            this.origin = new PointF(drawingArea.ClientSize.Width / 2f, drawingArea.ClientSize.Height / 2f);
+            this.origin = new Point(drawingArea.ClientSize.Width / 2, drawingArea.ClientSize.Height / 2);
             //initialize the scale to 1:1
             this.scale = new SizeF(1, 1);
             this.drawingArea.Paint += DrawingArea_Paint;
@@ -37,7 +37,7 @@ namespace LineGraphsProject
             e.Graphics.TranslateTransform(this.origin.X, this.origin.Y);
             e.Graphics.ScaleTransform(scale.Width, scale.Height);
             foreach (LineGraphDrawer drawer in this.drawers)
-                drawer.Draw(e.Graphics, this.drawingArea.ClientSize);
+                drawer.Draw(e.Graphics, this.drawingArea.ClientSize.Width, origin.X);
 
             e.Graphics.ResetTransform();
         }

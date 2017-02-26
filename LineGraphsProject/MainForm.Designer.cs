@@ -34,7 +34,7 @@
             // 
             // addGraphBtn
             // 
-            this.addGraphBtn.Location = new System.Drawing.Point(8, 6);
+            this.addGraphBtn.Location = new System.Drawing.Point(12, 12);
             this.addGraphBtn.Name = "addGraphBtn";
             this.addGraphBtn.Size = new System.Drawing.Size(158, 53);
             this.addGraphBtn.TabIndex = 0;
@@ -44,16 +44,20 @@
             // 
             // drawingArea
             // 
-            this.drawingArea.Location = new System.Drawing.Point(64, 95);
+            this.drawingArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.drawingArea.Location = new System.Drawing.Point(12, 71);
             this.drawingArea.Name = "drawingArea";
-            this.drawingArea.Size = new System.Drawing.Size(485, 164);
+            this.drawingArea.Size = new System.Drawing.Size(917, 422);
             this.drawingArea.TabIndex = 1;
+            this.drawingArea.SizeChanged += new System.EventHandler(this.drawingArea_SizeChanged);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 339);
+            this.ClientSize = new System.Drawing.Size(941, 505);
             this.Controls.Add(this.drawingArea);
             this.Controls.Add(this.addGraphBtn);
             this.Name = "MainForm";

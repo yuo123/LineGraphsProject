@@ -16,7 +16,7 @@ namespace LineGraphsProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddGraphForm());
+            Application.Run(new MainForm());
         }
     }
 }

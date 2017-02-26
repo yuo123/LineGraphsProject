@@ -16,7 +16,7 @@ namespace LineGraphsProject
             //TODO: implement
         }
 
-        public IEnumerable<PointF> GetPoints(float minDiscernableStep)
+        public IEnumerable<PointF> GetPoints(float minX, float maxX, float minDiscernableStep)
         {
             //TODO: implement
             return null;

@@ -9,7 +9,7 @@ namespace LineGraphsProject
 {
     public interface ILineGraphProvider
     {
-        IEnumerable<PointF> GetPoints(float minDiscernableStep);
+        IEnumerable<PointF> GetPoints(float minX, float maxX, float minDiscernableStep);
         /// <summary>
         /// Asks the user for parameters for the graph source
         /// </summary>

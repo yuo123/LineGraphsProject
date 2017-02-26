@@ -15,10 +15,12 @@ namespace LineGraphsProject
         private ILineGraphProvider provider;
         private float scaleX;
         private float scaleY;
+        private Color color;
 
-        public LineGraphDrawer(ILineGraphProvider provider, float scaleX, float scaleY)
+        public LineGraphDrawer(ILineGraphProvider provider, float scaleX, float scaleY, Color color)
         {
             this.provider = provider;
+            this.color = color;
             provider.AskForParameters();
         }
 

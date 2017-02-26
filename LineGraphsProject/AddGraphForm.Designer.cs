@@ -29,18 +29,20 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Label label1;
-            System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label9;
+            System.Windows.Forms.Label label6;
             this.sourceBox = new System.Windows.Forms.ComboBox();
             this.addBtn = new System.Windows.Forms.Button();
-            this.yScale = new System.Windows.Forms.NumericUpDown();
             this.xScale = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
+            this.yScale = new System.Windows.Forms.NumericUpDown();
+            this.colorBtn = new LineGraphsProject.ColorSelectionButton();
+            this.label3 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
-            label6 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.yScale)).BeginInit();
+            label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.xScale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yScale)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -51,24 +53,6 @@
             label1.Size = new System.Drawing.Size(66, 13);
             label1.TabIndex = 2;
             label1.Text = "Graph Type:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(9, 56);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(47, 13);
-            label6.TabIndex = 11;
-            label6.Text = "X Scale:";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(9, 82);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(47, 13);
-            label9.TabIndex = 14;
-            label9.Text = "Y Scale:";
             // 
             // sourceBox
             // 
@@ -90,18 +74,14 @@
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
-            // yScale
+            // label9
             // 
-            this.yScale.DecimalPlaces = 2;
-            this.yScale.Location = new System.Drawing.Point(64, 80);
-            this.yScale.Maximum = new decimal(new int[] {
-            -1,
-            -1,
-            -1,
-            0});
-            this.yScale.Name = "yScale";
-            this.yScale.Size = new System.Drawing.Size(74, 20);
-            this.yScale.TabIndex = 16;
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(9, 82);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(47, 13);
+            label9.TabIndex = 14;
+            label9.Text = "Y Scale:";
             // 
             // xScale
             // 
@@ -121,15 +101,57 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(9, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 14;
-            this.label2.Text = "Scale:";
+            this.label2.Text = "Additional Scale:";
+            // 
+            // yScale
+            // 
+            this.yScale.DecimalPlaces = 2;
+            this.yScale.Location = new System.Drawing.Point(64, 80);
+            this.yScale.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.yScale.Name = "yScale";
+            this.yScale.Size = new System.Drawing.Size(74, 20);
+            this.yScale.TabIndex = 16;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(9, 56);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(47, 13);
+            label6.TabIndex = 11;
+            label6.Text = "X Scale:";
+            // 
+            // colorBtn
+            // 
+            this.colorBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colorBtn.Location = new System.Drawing.Point(64, 106);
+            this.colorBtn.Name = "colorBtn";
+            this.colorBtn.Size = new System.Drawing.Size(25, 25);
+            this.colorBtn.TabIndex = 17;
+            this.colorBtn.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 112);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Color:";
             // 
             // AddGraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(266, 145);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.colorBtn);
             this.Controls.Add(label6);
             this.Controls.Add(this.yScale);
             this.Controls.Add(this.label2);
@@ -140,8 +162,8 @@
             this.Controls.Add(this.sourceBox);
             this.Name = "AddGraphForm";
             this.Text = "AddGraphForm";
-            ((System.ComponentModel.ISupportInitialize)(this.yScale)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xScale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yScale)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,9 +173,11 @@
 
         private System.Windows.Forms.ComboBox sourceBox;
         private System.Windows.Forms.Button addBtn;
-        private System.Windows.Forms.NumericUpDown yScale;
         private System.Windows.Forms.NumericUpDown xScale;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown yScale;
+        private ColorSelectionButton colorBtn;
+        private System.Windows.Forms.Label label3;
 
     }
 }

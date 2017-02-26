@@ -16,6 +16,7 @@ namespace LineGraphsProject
     public partial class AddGraphForm : Form
     {
         private LineGraphDrawer drawer;
+        private static Random rnd;
 
         /// <summary>
         /// The types of ILineGraphProviders which can be added
@@ -31,7 +32,15 @@ namespace LineGraphsProject
             //DisplayMember is the name of the property to be displayed on the ComboBox
             //"Name" is a property of the Type class
             sourceBox.DisplayMember = "Name";
-            //TODO: implement from some click event
+
+            this.colorBtn.BackColor = GenerateRandomColor();
+        }
+
+        private static Color GenerateRandomColor()
+        {
+            //(0xFF << 24) is for alpha, rnd.Next(0xFFFFFF) is for RGB
+            // the pipe ('|') operator is bitwise OR
+            return Color.FromArgb((0xFF << 24) | rnd.Next(0xFFFFFF));
         }
 
         //static constructor
@@ -40,6 +49,7 @@ namespace LineGraphsProject
         {
             providerTypes = new List<Type>();
             InitGraphProviders();
+            rnd = new Random();
         }
 
         private static void InitGraphProviders()
@@ -71,7 +81,7 @@ namespace LineGraphsProject
 
             //the created instance can always be cast to ILineGraphProvider, because the items in sourceBox.DataSource are only added 
             //by AddProviderType<T>() where T : ILineGraphProvider
-            this.drawer = new LineGraphDrawer((ILineGraphProvider)Activator.CreateInstance((Type)sourceBox.SelectedItem), scaleX, scaleY);
+            this.drawer = new LineGraphDrawer((ILineGraphProvider)Activator.CreateInstance((Type)sourceBox.SelectedItem), scaleX, scaleY, this.colorBtn.BackColor);
         }
     }
 }

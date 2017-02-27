@@ -26,6 +26,7 @@ namespace LineGraphsProject
         public AddGraphForm()
         {
             InitializeComponent();
+            this.DialogResult = DialogResult.Cancel;
             //this is using WinForms Data Binding mechanism, which allows any collection of objects to be used as data sources for controls
             //in the case of a ComboBox, the selected item (upcast to object) will later be available as sourceBox.SelectedItem
             sourceBox.DataSource = providerTypes;
@@ -86,7 +87,14 @@ namespace LineGraphsProject
 
             //the created instance can always be cast to ILineGraphProvider, because the items in sourceBox.DataSource are only added 
             //by AddProviderType<T>() where T : ILineGraphProvider
-            this.drawer = new LineGraphDrawer((ILineGraphProvider)Activator.CreateInstance((Type)sourceBox.SelectedItem), scaleX, scaleY, this.colorBtn.BackColor);
+            ILineGraphProvider provider = (ILineGraphProvider)Activator.CreateInstance((Type)sourceBox.SelectedItem);
+            if (provider.AskForParameters())
+            {
+                this.drawer = new LineGraphDrawer(provider, scaleX, scaleY, this.colorBtn.BackColor);
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+                this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
     }

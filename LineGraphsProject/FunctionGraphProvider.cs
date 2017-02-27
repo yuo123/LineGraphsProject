@@ -11,9 +11,10 @@ namespace LineGraphsProject
     {
         private IFunction function;
 
-        public void AskForParameters()
+        public bool AskForParameters()
         {
             //TODO: implement
+            return false;
         }
 
         public IEnumerable<PointF> GetPoints(float minX, float maxX, float minDiscernableStep)

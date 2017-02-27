@@ -125,9 +125,11 @@ namespace LineGraphsProject
         private void AddGraph()
         {
             AddGraphForm form = new AddGraphForm();
-            form.ShowDialog(this);
-            this.drawers.Add(form.GetDrawer());
-            drawingArea.Invalidate();
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+                this.drawers.Add(form.GetDrawer());
+                drawingArea.Invalidate();
+            }
         }
 
         /// <summary>

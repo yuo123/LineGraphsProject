@@ -9,7 +9,10 @@ namespace LineGraphsProject
 {
     public class TestGraphProvider : ILineGraphProvider
     {
-        public void AskForParameters() { }
+        public bool AskForParameters()
+        {
+            return true;
+        }
 
         public IEnumerable<PointF> GetPoints(float minX, float maxX, float minDiscernableStep)
         {

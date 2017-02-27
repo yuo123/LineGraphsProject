@@ -13,6 +13,7 @@ namespace LineGraphsProject
         /// <summary>
         /// Asks the user for parameters for the graph source
         /// </summary>
-        void AskForParameters();
+        /// <returns>Whether the parameters were successfully obtained. False if creation was canceled</returns>
+        bool AskForParameters();
     }
 }

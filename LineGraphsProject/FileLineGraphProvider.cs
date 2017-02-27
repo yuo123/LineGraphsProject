@@ -13,11 +13,16 @@ namespace LineGraphsProject
         //the points loaded the file
         private IEnumerable<PointF> points;
 
-        public void AskForParameters()
+        public bool AskForParameters()
         {
             PathInputForm pathDiag = new PathInputForm();
-            pathDiag.ShowDialog();
-            this.points = this.LoadFile(pathDiag.GetPath()).ToList();
+            if (pathDiag.ShowDialog() == DialogResult.OK)
+            {
+                this.points = this.LoadFile(pathDiag.GetPath()).ToList();
+                return true;
+            }
+            else
+                return false;
         }
 
         public abstract IEnumerable<PointF> LoadFile(string path);

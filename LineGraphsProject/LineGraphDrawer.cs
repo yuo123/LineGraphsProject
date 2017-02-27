@@ -24,7 +24,6 @@ namespace LineGraphsProject
             this.color = color;
             this.scaleX = scaleX;
             this.scaleY = scaleY;
-            provider.AskForParameters();
         }
 
         public void Draw(Graphics gr, int drawingWidth, int originX)

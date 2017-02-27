@@ -193,5 +193,15 @@ namespace LineGraphsProject
                 StopDragging(e.Location);
         }
         #endregion
+
+        private void quickViewBtn_Click(object sender, EventArgs e)
+        {
+            float x = (float)(xMax.Value - xMin.Value);
+            float y = (float)(yMax.Value - yMin.Value);
+            //scale is graph-space divided by screen-space
+            this.scale = new SizeF(x / drawingArea.ClientSize.Width, y / drawingArea.ClientSize.Height);
+            //origin is minus the min value (then converted to screen-space). y axis is flipped as always
+            SetOrigin((int)((float)-xMin.Value / this.scale.Width), drawingArea.ClientRectangle.Height - (int)((float)-yMin.Value / this.scale.Height));
+        }
     }
 }

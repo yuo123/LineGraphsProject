@@ -11,8 +11,18 @@ namespace LineGraphsProject
     {
         public override IEnumerable<PointF> LoadFile(string path)
         {
-            //TODO: implement
-            return null;
+            Bitmap bitmap = new Bitmap(path);
+            for (int i = 0; i < bitmap.Width; i++)
+            {
+                for (int j = 0; j < bitmap.Height; j++)
+                {
+                    if (bitmap.GetPixel(i, j).ToArgb() != -1)
+                    {
+                        yield return new PointF(i, j);
+                        break;
+                    }
+                }
+            }
         }
     }
 }

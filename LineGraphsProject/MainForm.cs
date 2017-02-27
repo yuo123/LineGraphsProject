@@ -27,7 +27,7 @@ namespace LineGraphsProject
         //length of the markers (vertical for x-axis)
         private const float MARKER_LENGTH = 16f;
         //space between adjacent markers
-        private const int MARKER_SPACING = 40; 
+        private const int MARKER_SPACING = 40;
         #endregion
 
         public Size GetDrawingAreaSize()
@@ -43,7 +43,8 @@ namespace LineGraphsProject
             //initialize the scale to 1:1
             this.scale = new SizeF(1, 1);
             this.drawers = new List<LineGraphDrawer>();
-
+            //sets drawingArea.DoubleBuffered, even tough it is protected
+            this.drawingArea.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(this.drawingArea, true);
             this.drawingArea.Paint += DrawingArea_Paint;
         }
 
@@ -141,9 +142,56 @@ namespace LineGraphsProject
             this.drawingArea.Invalidate();
         }
 
+        private void SetOrigin(int x, int y)
+        {
+            this.origin = new Point(x, y);
+            drawingArea.Invalidate();
+        }
+
         private void drawingArea_SizeChanged(object sender, EventArgs e)
         {
             drawingArea.Invalidate();
         }
+
+        #region Dragging
+        private bool dragging;
+        private Point dragPos;
+        private Point dragOrigin;
+
+        private void StartDragging(Point mousePos)
+        {
+            this.dragPos = mousePos;
+            this.dragOrigin = this.origin;
+            this.dragging = true;
+        }
+
+        private void ContinueDragging(Point mousePos)
+        {
+            SetOrigin(dragOrigin.X + mousePos.X - dragPos.X, dragOrigin.Y + mousePos.Y - dragPos.Y);
+        }
+
+        private void StopDragging(Point mousePos)
+        {
+            ContinueDragging(mousePos);
+            this.dragging = false;
+        }
+
+        private void drawingArea_MouseDown(object sender, MouseEventArgs e)
+        {
+            StartDragging(e.Location);
+        }
+
+        private void drawingArea_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (this.dragging)
+                ContinueDragging(e.Location);
+        }
+
+        private void drawingArea_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (this.dragging)
+                StopDragging(e.Location);
+        }
+        #endregion
     }
 }

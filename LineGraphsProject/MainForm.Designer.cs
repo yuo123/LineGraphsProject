@@ -1,4 +1,7 @@
-﻿namespace LineGraphsProject
+﻿using System;
+using System.Windows.Forms;
+
+namespace LineGraphsProject
 {
     partial class MainForm
     {
@@ -52,6 +55,9 @@
             this.drawingArea.Size = new System.Drawing.Size(917, 422);
             this.drawingArea.TabIndex = 1;
             this.drawingArea.SizeChanged += new System.EventHandler(this.drawingArea_SizeChanged);
+            this.drawingArea.MouseDown += new System.Windows.Forms.MouseEventHandler(this.drawingArea_MouseDown);
+            this.drawingArea.MouseMove += new System.Windows.Forms.MouseEventHandler(this.drawingArea_MouseMove);
+            this.drawingArea.MouseUp += new System.Windows.Forms.MouseEventHandler(this.drawingArea_MouseUp);
             // 
             // MainForm
             // 
@@ -60,6 +66,7 @@
             this.ClientSize = new System.Drawing.Size(941, 505);
             this.Controls.Add(this.drawingArea);
             this.Controls.Add(this.addGraphBtn);
+            this.DoubleBuffered = true;
             this.Name = "MainForm";
             this.Text = "Line Graphs Visualizer";
             this.ResumeLayout(false);

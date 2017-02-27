@@ -18,7 +18,7 @@ namespace LineGraphsProject
                 {
                     if (bitmap.GetPixel(i, j).ToArgb() != -1)
                     {
-                        yield return new PointF(i, j);
+                        yield return new PointF(i, bitmap.Height - j - 1);
                         break;
                     }
                 }

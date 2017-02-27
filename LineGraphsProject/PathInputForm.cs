@@ -21,5 +21,10 @@ namespace LineGraphsProject
         {
             return this.pathBox.Text;
         }
+
+        private void okBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

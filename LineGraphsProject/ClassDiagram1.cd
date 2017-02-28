@@ -36,7 +36,7 @@
   <Class Name="LineGraphsProject.LineGraphDrawer">
     <Position X="7.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQAAAAAAgAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAQAAAAAAgAAAAAAAAACAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>LineGraphDrawer.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -53,7 +53,7 @@
       <Method Name="InitializeComponent" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AgAABAAAQCAAAAAAAgCAAAACAAACAAAAAAQBAAAAAAA=</HashCode>
+      <HashCode>CoAAVAAAQCBAABwJAgCAAAAyAEgCEAAEAAQBEBASEIA=</HashCode>
       <FileName>MainForm.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -69,7 +69,7 @@
       <Field Name="pathBox" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAACAAAAAAAAIAAAAAA=</HashCode>
+      <HashCode>AAAAAAQAACAAAAAAAACAAAACAAACAAAAAAAAoAAAAAA=</HashCode>
       <FileName>PathInputForm.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -89,22 +89,19 @@
       <Method Name="InitializeComponent" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAQAACAAAAAAAACAAAACAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <HashCode>AAEEUAAIAKAAABAhAACAAAAGAQCAAAAAAIAAABAAAAA=</HashCode>
       <FileName>AddGraphForm.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="provider" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="LineGraphsProject.PolynomialInputForm">
-    <Position X="9" Y="6.5" Width="1.75" />
+    <Position X="8.75" Y="6.5" Width="1.75" />
     <Members>
       <Field Name="components" Hidden="true" />
       <Method Name="Dispose" Hidden="true" />
       <Method Name="InitializeComponent" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAACEAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ICAAAAAAACAAgBAAkACEAAACAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>PolynomialInputForm.cs</FileName>
     </TypeIdentifier>
   </Class>

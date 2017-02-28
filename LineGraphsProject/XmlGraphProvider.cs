@@ -11,9 +11,20 @@ namespace LineGraphsProject
     public class XmlGraphProvider : FileLineGraphProvider
     {
         public override IEnumerable<PointF> LoadFile(string path)
-        {
-            //TODO: implement
-            return null;
+        {   
+            XmlDocument doc = new XmlDocument();
+            doc.Load(path);
+            XmlElement root = doc.DocumentElement;
+
+            for (int i = 0; i < root.ChildNodes.Count; i++)
+            {
+                XmlNode point = root.ChildNodes[i];
+                
+                int x = int.Parse(point["x"].InnerText);
+                int y = int.Parse(point["y"].InnerText);
+               
+                yield return new PointF(x, y);
+            }
         }
     }
 }

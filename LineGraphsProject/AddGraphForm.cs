@@ -58,7 +58,6 @@ namespace LineGraphsProject
             AddProviderType<ImageGraphProvider>();
             AddProviderType<XmlGraphProvider>();
             AddProviderType<FunctionGraphProvider>();
-            AddProviderType<TestGraphProvider>();
         }
 
         /// <summary>

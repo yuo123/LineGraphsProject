@@ -8,17 +8,21 @@ namespace LineGraphsProject
 {
     public class Polynomial : IFunction
     {
-        private int[] coefficients;
+        private double[] coefficients;
 
-        public Polynomial(int[] coefficients)
+        public Polynomial(double[] coefficients)
         {
             this.coefficients = coefficients;
         }
 
         public double GetY(double x)
         {
-            //TODO: implement
-            return 0;
+            double ret = 0;
+            for (int i = 0; i < this.coefficients.Length; i++)
+            {
+                ret += Math.Pow(coefficients[i] * x, this.coefficients.Length - i);
+            }
+            return ret;
         }
     }
 }

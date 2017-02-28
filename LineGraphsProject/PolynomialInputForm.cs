@@ -19,8 +19,22 @@ namespace LineGraphsProject
 
         public Polynomial GetPolynomial()
         {
-            //TODO: implement
-            return null;
+            int i = 0;
+            double[] coefficients = new double[(int)orderUpDown.Value];
+            foreach (Control controls in coefficientsPanel.Controls)
+            {
+                if (i < (int)orderUpDown.Value)
+                {
+                    if (!double.TryParse(controls.Text, out coefficients[i]))
+                    {
+                        MessageBox.Show("Invalid Input");
+                        return null;
+                    }
+                        
+                }
+                i++;
+            }
+            return new Polynomial(coefficients);
         }
 
         private void PolynomialInputForm_Load(object sender, EventArgs e)

@@ -58,6 +58,7 @@ namespace LineGraphsProject
             gr.DrawPath(pen, graph);
             pen.Dispose();
             ptsBrush.Dispose();
+            graph.Dispose();
 
             gr.Restore(state);
         }

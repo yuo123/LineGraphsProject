@@ -90,7 +90,7 @@ namespace LineGraphsProject
             ILineGraphProvider provider = (ILineGraphProvider)Activator.CreateInstance((Type)sourceBox.SelectedItem);
             if (provider.AskForParameters())
             {
-                this.drawer = new LineGraphDrawer(provider, scaleX, scaleY, this.colorBtn.BackColor);
+                this.drawer = new LineGraphDrawer(provider, scaleX, scaleY, this.colorBtn.BackColor, this.markPointsBox.Checked);
                 this.DialogResult = DialogResult.OK;
             }
             else

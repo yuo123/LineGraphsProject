@@ -36,7 +36,7 @@
   <Class Name="LineGraphsProject.LineGraphDrawer">
     <Position X="7.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQAAAAAAgAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAQAAAAAQgAAAAAACAACAAAAAACAAQAAAAAAAAA=</HashCode>
       <FileName>LineGraphDrawer.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -44,16 +44,50 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="LineGraphsProject.MainForm">
-    <Position X="9.75" Y="0.5" Width="1.5" />
+    <Position X="9.75" Y="0.5" Width="2.25" />
     <Members>
+      <Method Name="AddGraph" Hidden="true" />
       <Field Name="addGraphBtn" Hidden="true" />
       <Method Name="addGraphBtn_Click" Hidden="true" />
+      <Field Name="AXIS_WIDTH" Hidden="true" />
+      <Method Name="ClearGraphs" Hidden="true" />
       <Field Name="components" Hidden="true" />
+      <Method Name="ContinueDragging" Hidden="true" />
       <Method Name="Dispose" Hidden="true" />
+      <Field Name="dragging" Hidden="true" />
+      <Field Name="dragOrigin" Hidden="true" />
+      <Field Name="dragPos" Hidden="true" />
+      <Field Name="drawingArea" Hidden="true" />
+      <Method Name="drawingArea_MouseDown" Hidden="true" />
+      <Method Name="drawingArea_MouseEnter" Hidden="true" />
+      <Method Name="drawingArea_MouseMove" Hidden="true" />
+      <Method Name="drawingArea_MouseUp" Hidden="true" />
+      <Method Name="DrawingArea_MouseWheel" Hidden="true" />
+      <Method Name="DrawingArea_Paint" Hidden="true" />
+      <Method Name="drawingArea_SizeChanged" Hidden="true" />
+      <Method Name="Floor" Hidden="true" />
+      <Method Name="GetDrawingAreaSize" Hidden="true" />
       <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="MARKER_LENGTH" Hidden="true" />
+      <Field Name="MARKER_SPACING" Hidden="true" />
+      <Field Name="MARKER_WIDTH" Hidden="true" />
+      <Field Name="origin" Hidden="true" />
+      <Method Name="PaintAxes" Hidden="true" />
+      <Field Name="quickViewBtn" Hidden="true" />
+      <Method Name="quickViewBtn_Click" Hidden="true" />
+      <Field Name="scale" Hidden="true" />
+      <Method Name="ScaleAroundPoint" Hidden="true" />
+      <Field Name="SCALING_FACTOR" Hidden="true" />
+      <Method Name="SetOrigin" Hidden="true" />
+      <Method Name="StartDragging" Hidden="true" />
+      <Method Name="StopDragging" Hidden="true" />
+      <Field Name="xMax" Hidden="true" />
+      <Field Name="xMin" Hidden="true" />
+      <Field Name="yMax" Hidden="true" />
+      <Field Name="yMin" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AgAABAAAQCAAAAAAAgCAAAACAAACAAAAAAQBAAAAAAA=</HashCode>
+      <HashCode>CoAAVAABQCBAABwJAgCAAAAyAEgCEEBECAQBEBASEIA=</HashCode>
       <FileName>MainForm.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -69,7 +103,7 @@
       <Field Name="pathBox" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAACAAAAAAAAIAAAAAA=</HashCode>
+      <HashCode>AAAAAAQAACAAAAAAAACAQAACAAACABAAAAAgoAAAAAA=</HashCode>
       <FileName>PathInputForm.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -89,12 +123,9 @@
       <Method Name="InitializeComponent" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAQAACAAAAAAAACAAAACAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <HashCode>AAEEUIAIAKAAABAhAACAAAAGAQCAAAAAAIAAABAAAAA=</HashCode>
       <FileName>AddGraphForm.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="provider" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="LineGraphsProject.PolynomialInputForm">
     <Position X="9" Y="6.5" Width="1.75" />
@@ -104,7 +135,7 @@
       <Method Name="InitializeComponent" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAACEAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ICAAAAAAACAAgBAAkACEAAACAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>PolynomialInputForm.cs</FileName>
     </TypeIdentifier>
   </Class>

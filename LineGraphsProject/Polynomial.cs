@@ -20,7 +20,7 @@ namespace LineGraphsProject
             double ret = 0;
             for (int i = 0; i < this.coefficients.Length; i++)
             {
-                ret += Math.Pow(coefficients[i] * x, this.coefficients.Length - i);
+                ret += (coefficients[i] * Math.Pow(x, this.coefficients.Length - i - 1));
             }
             return ret;
         }

@@ -36,48 +36,24 @@ namespace LineGraphsProject
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label4;
             System.Windows.Forms.GroupBox groupBox1;
+            this.quickViewBtn = new System.Windows.Forms.Button();
+            this.yMax = new System.Windows.Forms.NumericUpDown();
+            this.xMax = new System.Windows.Forms.NumericUpDown();
+            this.yMin = new System.Windows.Forms.NumericUpDown();
+            this.xMin = new System.Windows.Forms.NumericUpDown();
             this.addGraphBtn = new System.Windows.Forms.Button();
             this.drawingArea = new System.Windows.Forms.Panel();
-            this.xMin = new System.Windows.Forms.NumericUpDown();
-            this.yMin = new System.Windows.Forms.NumericUpDown();
-            this.xMax = new System.Windows.Forms.NumericUpDown();
-            this.yMax = new System.Windows.Forms.NumericUpDown();
-            this.quickViewBtn = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             groupBox1 = new System.Windows.Forms.GroupBox();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.xMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xMin)).BeginInit();
             this.SuspendLayout();
-            // 
-            // addGraphBtn
-            // 
-            this.addGraphBtn.Location = new System.Drawing.Point(12, 12);
-            this.addGraphBtn.Name = "addGraphBtn";
-            this.addGraphBtn.Size = new System.Drawing.Size(158, 53);
-            this.addGraphBtn.TabIndex = 0;
-            this.addGraphBtn.Text = "Add Graph...";
-            this.addGraphBtn.UseVisualStyleBackColor = true;
-            this.addGraphBtn.Click += new System.EventHandler(this.addGraphBtn_Click);
-            // 
-            // drawingArea
-            // 
-            this.drawingArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.drawingArea.Location = new System.Drawing.Point(12, 71);
-            this.drawingArea.Name = "drawingArea";
-            this.drawingArea.Size = new System.Drawing.Size(917, 464);
-            this.drawingArea.TabIndex = 1;
-            this.drawingArea.SizeChanged += new System.EventHandler(this.drawingArea_SizeChanged);
-            this.drawingArea.MouseDown += new System.Windows.Forms.MouseEventHandler(this.drawingArea_MouseDown);
-            this.drawingArea.MouseMove += new System.Windows.Forms.MouseEventHandler(this.drawingArea_MouseMove);
-            this.drawingArea.MouseUp += new System.Windows.Forms.MouseEventHandler(this.drawingArea_MouseUp);
             // 
             // label1
             // 
@@ -133,74 +109,15 @@ namespace LineGraphsProject
             groupBox1.TabStop = false;
             groupBox1.Text = "Quick-View";
             // 
-            // xMin
+            // quickViewBtn
             // 
-            this.xMin.DecimalPlaces = 2;
-            this.xMin.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.xMin.Location = new System.Drawing.Point(51, 14);
-            this.xMin.Maximum = new decimal(new int[] {
-            -1,
-            -1,
-            -1,
-            0});
-            this.xMin.Minimum = new decimal(new int[] {
-            -1,
-            -1,
-            -1,
-            -2147483648});
-            this.xMin.Name = "xMin";
-            this.xMin.Size = new System.Drawing.Size(62, 20);
-            this.xMin.TabIndex = 6;
-            // 
-            // yMin
-            // 
-            this.yMin.DecimalPlaces = 2;
-            this.yMin.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.yMin.Location = new System.Drawing.Point(51, 37);
-            this.yMin.Maximum = new decimal(new int[] {
-            -1,
-            -1,
-            -1,
-            0});
-            this.yMin.Minimum = new decimal(new int[] {
-            -1,
-            -1,
-            -1,
-            -2147483648});
-            this.yMin.Name = "yMin";
-            this.yMin.Size = new System.Drawing.Size(62, 20);
-            this.yMin.TabIndex = 8;
-            // 
-            // xMax
-            // 
-            this.xMax.DecimalPlaces = 2;
-            this.xMax.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.xMax.Location = new System.Drawing.Point(141, 14);
-            this.xMax.Maximum = new decimal(new int[] {
-            -1,
-            -1,
-            -1,
-            0});
-            this.xMax.Minimum = new decimal(new int[] {
-            -1,
-            -1,
-            -1,
-            -2147483648});
-            this.xMax.Name = "xMax";
-            this.xMax.Size = new System.Drawing.Size(70, 20);
-            this.xMax.TabIndex = 7;
+            this.quickViewBtn.Location = new System.Drawing.Point(217, 16);
+            this.quickViewBtn.Name = "quickViewBtn";
+            this.quickViewBtn.Size = new System.Drawing.Size(44, 41);
+            this.quickViewBtn.TabIndex = 10;
+            this.quickViewBtn.Text = "Set";
+            this.quickViewBtn.UseVisualStyleBackColor = true;
+            this.quickViewBtn.Click += new System.EventHandler(this.quickViewBtn_Click);
             // 
             // yMax
             // 
@@ -225,15 +142,99 @@ namespace LineGraphsProject
             this.yMax.Size = new System.Drawing.Size(70, 20);
             this.yMax.TabIndex = 9;
             // 
-            // quickViewBtn
+            // xMax
             // 
-            this.quickViewBtn.Location = new System.Drawing.Point(217, 16);
-            this.quickViewBtn.Name = "quickViewBtn";
-            this.quickViewBtn.Size = new System.Drawing.Size(44, 41);
-            this.quickViewBtn.TabIndex = 10;
-            this.quickViewBtn.Text = "Set";
-            this.quickViewBtn.UseVisualStyleBackColor = true;
-            this.quickViewBtn.Click += new System.EventHandler(this.quickViewBtn_Click);
+            this.xMax.DecimalPlaces = 2;
+            this.xMax.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.xMax.Location = new System.Drawing.Point(141, 14);
+            this.xMax.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.xMax.Minimum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            -2147483648});
+            this.xMax.Name = "xMax";
+            this.xMax.Size = new System.Drawing.Size(70, 20);
+            this.xMax.TabIndex = 7;
+            // 
+            // yMin
+            // 
+            this.yMin.DecimalPlaces = 2;
+            this.yMin.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.yMin.Location = new System.Drawing.Point(51, 37);
+            this.yMin.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.yMin.Minimum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            -2147483648});
+            this.yMin.Name = "yMin";
+            this.yMin.Size = new System.Drawing.Size(62, 20);
+            this.yMin.TabIndex = 8;
+            // 
+            // xMin
+            // 
+            this.xMin.DecimalPlaces = 2;
+            this.xMin.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.xMin.Location = new System.Drawing.Point(51, 14);
+            this.xMin.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.xMin.Minimum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            -2147483648});
+            this.xMin.Name = "xMin";
+            this.xMin.Size = new System.Drawing.Size(62, 20);
+            this.xMin.TabIndex = 6;
+            // 
+            // addGraphBtn
+            // 
+            this.addGraphBtn.Location = new System.Drawing.Point(12, 12);
+            this.addGraphBtn.Name = "addGraphBtn";
+            this.addGraphBtn.Size = new System.Drawing.Size(158, 53);
+            this.addGraphBtn.TabIndex = 0;
+            this.addGraphBtn.Text = "Add Graph...";
+            this.addGraphBtn.UseVisualStyleBackColor = true;
+            this.addGraphBtn.Click += new System.EventHandler(this.addGraphBtn_Click);
+            // 
+            // drawingArea
+            // 
+            this.drawingArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.drawingArea.Location = new System.Drawing.Point(12, 71);
+            this.drawingArea.Name = "drawingArea";
+            this.drawingArea.Size = new System.Drawing.Size(917, 464);
+            this.drawingArea.TabIndex = 1;
+            this.drawingArea.SizeChanged += new System.EventHandler(this.drawingArea_SizeChanged);
+            this.drawingArea.MouseDown += new System.Windows.Forms.MouseEventHandler(this.drawingArea_MouseDown);
+            this.drawingArea.MouseEnter += new System.EventHandler(this.drawingArea_MouseEnter);
+            this.drawingArea.MouseMove += new System.Windows.Forms.MouseEventHandler(this.drawingArea_MouseMove);
+            this.drawingArea.MouseUp += new System.Windows.Forms.MouseEventHandler(this.drawingArea_MouseUp);
             // 
             // MainForm
             // 
@@ -248,10 +249,10 @@ namespace LineGraphsProject
             this.Text = "Line Graphs Visualizer";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.xMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xMin)).EndInit();
             this.ResumeLayout(false);
 
         }

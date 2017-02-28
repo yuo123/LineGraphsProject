@@ -15,6 +15,7 @@ namespace LineGraphsProject
         public PolynomialInputForm()
         {
             InitializeComponent();
+            this.DialogResult = DialogResult.Cancel;
         }
 
         public Polynomial GetPolynomial()
@@ -59,5 +60,10 @@ namespace LineGraphsProject
             }
         }
 
+        private void finish_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
     }
 }

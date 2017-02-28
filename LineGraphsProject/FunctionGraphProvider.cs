@@ -13,14 +13,23 @@ namespace LineGraphsProject
 
         public bool AskForParameters()
         {
-            //TODO: implement
-            return false;
+            PolynomialInputForm myForm = new PolynomialInputForm();
+            while (this.function == null)
+            {
+                if (myForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    this.function = myForm.GetPolynomial();
+                else
+                    return false;
+            }
+            return true;
         }
 
         public IEnumerable<PointF> GetPoints(float minX, float maxX, float minDiscernableStep)
         {
-            //TODO: implement
-            return null;
+            for (float x = minX; x <= maxX; x += minDiscernableStep)
+            {
+                yield return new PointF(x, (float)this.function.GetY(x));
+            }
         }
     }
 }

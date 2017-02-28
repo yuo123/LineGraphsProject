@@ -93,6 +93,9 @@
     <EmbeddedResource Include="PathInputForm.resx">
       <DependentUpon>PathInputForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PolynomialInputForm.resx">
+      <DependentUpon>PolynomialInputForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

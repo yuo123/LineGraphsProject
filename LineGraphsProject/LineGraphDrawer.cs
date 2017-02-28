@@ -48,6 +48,8 @@ namespace LineGraphsProject
             Pen pen = null;
             try
             {
+                //widths and sizes are set to the average they needs to be (between the two axes) in order to be LINE_WIDTH and POINT_RADIUS
+                float scalingFactor = 1 / (Math.Abs(gr.Transform.Elements[0]) + Math.Abs(gr.Transform.Elements[1]));
                 graph = new GraphicsPath();
                 PointF last = new PointF(float.NaN, float.NaN);
                 ptsBrush = new SolidBrush(this.color);
@@ -56,11 +58,10 @@ namespace LineGraphsProject
                     if (!float.IsNaN(last.X) && point.X >= range[0].X && last.X <= range[1].X)
                         graph.AddLine(last, point);
                     if (this.markPoints)
-                        gr.FillEllipse(ptsBrush, point.X - POINT_RADIUS, point.Y - POINT_RADIUS, POINT_RADIUS * 2, POINT_RADIUS * 2);
+                        gr.FillEllipse(ptsBrush, point.X - POINT_RADIUS * scalingFactor, point.Y - POINT_RADIUS * scalingFactor, POINT_RADIUS * 2 * scalingFactor, POINT_RADIUS * 2 * scalingFactor);
                     last = point;
                 }
-                //width is set to the average it needs to be (between the two axes) in order to be LINE_WIDTH
-                pen = new Pen(this.color, 2 * LINE_WIDTH / (Math.Abs(gr.Transform.Elements[0]) + Math.Abs(gr.Transform.Elements[1])));
+                pen = new Pen(this.color, scalingFactor * LINE_WIDTH);
                 gr.DrawPath(pen, graph);
             }
             catch (OverflowException) { }

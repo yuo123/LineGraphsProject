@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,8 +19,17 @@ namespace LineGraphsProject
             PathInputForm pathDiag = new PathInputForm();
             if (pathDiag.ShowDialog() == DialogResult.OK)
             {
-                this.points = this.LoadFile(pathDiag.GetPath()).ToList();
-                return true;
+                try
+                {
+                    this.points = this.LoadFile(pathDiag.GetPath()).ToList();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    //in case there was a problem loading (probably because of unrecognized format), abort initialization
+                    MessageBox.Show("Error loading the file: " + ex.Message, "Error");
+                    return false;
+                }
             }
             else
                 return false;

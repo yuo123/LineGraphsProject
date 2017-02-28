@@ -38,6 +38,7 @@
             this.yScale = new System.Windows.Forms.NumericUpDown();
             this.colorBtn = new LineGraphsProject.ColorSelectionButton();
             this.label3 = new System.Windows.Forms.Label();
+            this.markPointsBox = new System.Windows.Forms.CheckBox();
             label1 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
@@ -84,7 +85,7 @@
             // addBtn
             // 
             this.addBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.addBtn.Location = new System.Drawing.Point(180, 107);
+            this.addBtn.Location = new System.Drawing.Point(180, 140);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(74, 26);
             this.addBtn.TabIndex = 1;
@@ -140,7 +141,7 @@
             // colorBtn
             // 
             this.colorBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.colorBtn.Location = new System.Drawing.Point(64, 106);
+            this.colorBtn.Location = new System.Drawing.Point(52, 108);
             this.colorBtn.Name = "colorBtn";
             this.colorBtn.Size = new System.Drawing.Size(25, 25);
             this.colorBtn.TabIndex = 17;
@@ -149,17 +150,28 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 112);
+            this.label3.Location = new System.Drawing.Point(12, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 18;
             this.label3.Text = "Color:";
             // 
+            // markPointsBox
+            // 
+            this.markPointsBox.AutoSize = true;
+            this.markPointsBox.Location = new System.Drawing.Point(15, 146);
+            this.markPointsBox.Name = "markPointsBox";
+            this.markPointsBox.Size = new System.Drawing.Size(82, 17);
+            this.markPointsBox.TabIndex = 19;
+            this.markPointsBox.Text = "Mark Points";
+            this.markPointsBox.UseVisualStyleBackColor = true;
+            // 
             // AddGraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(266, 145);
+            this.ClientSize = new System.Drawing.Size(266, 178);
+            this.Controls.Add(this.markPointsBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.colorBtn);
             this.Controls.Add(label6);
@@ -188,6 +200,6 @@
         private System.Windows.Forms.NumericUpDown yScale;
         private ColorSelectionButton colorBtn;
         private System.Windows.Forms.Label label3;
-
+        private System.Windows.Forms.CheckBox markPointsBox;
     }
 }

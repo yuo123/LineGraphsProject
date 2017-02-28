@@ -17,6 +17,8 @@ namespace LineGraphsProject
         private Point origin;
         private SizeF scale;
 
+        private const float SCALING_FACTOR = 0.001f;
+
         #region Axis Parameters
         //all values in pixels
 
@@ -46,6 +48,7 @@ namespace LineGraphsProject
             //sets drawingArea.DoubleBuffered, even tough it is protected
             this.drawingArea.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(this.drawingArea, true);
             this.drawingArea.Paint += DrawingArea_Paint;
+            this.drawingArea.MouseWheel += DrawingArea_MouseWheel;
         }
 
         private void DrawingArea_Paint(object sender, PaintEventArgs e)
@@ -84,7 +87,7 @@ namespace LineGraphsProject
 
                 //text
                 //((x - origin.X) * scale.Width) ≡ the x-coordinate of the marker in graph-space
-                string text = Math.Round((x - origin.X) * scale.Width, 2).ToString();
+                string text = Math.Round((x - origin.X) / scale.Width, 2).ToString();
                 SizeF tSize = gr.MeasureString(text, drawingArea.Font);
                 //tRect has size tSize and is centered below the marker
                 RectangleF tRect = new RectangleF(new PointF(x - (tSize.Width / 2), origin.Y + (MARKER_LENGTH / 2)), tSize);
@@ -98,7 +101,7 @@ namespace LineGraphsProject
 
                 //text
                 //((y - origin.Y) * scale.Height) ≡ the y-coordinate of the marker in graph-space
-                string text = Math.Round((origin.Y - y) * scale.Height, 2).ToString();
+                string text = Math.Round((origin.Y - y) / scale.Height, 2).ToString();
                 SizeF tSize = gr.MeasureString(text, drawingArea.Font);
                 //tRect has size tSize and is centered below the marker
                 RectangleF tRect = new RectangleF(new PointF(origin.X - (MARKER_LENGTH / 2) - tSize.Width, y - (tSize.Height / 2)), tSize);
@@ -198,10 +201,53 @@ namespace LineGraphsProject
         {
             float x = (float)(xMax.Value - xMin.Value);
             float y = (float)(yMax.Value - yMin.Value);
-            //scale is graph-space divided by screen-space
-            this.scale = new SizeF(x / drawingArea.ClientSize.Width, y / drawingArea.ClientSize.Height);
+            if (double.IsInfinity(1 / x))
+            {
+                MessageBox.Show("Invalid X Range. Please enter again.");
+                return;
+            }
+            if (double.IsInfinity(1 / y))
+            {
+                MessageBox.Show("Invalid Y Range. Please enter again.");
+                return;
+            }
+
+            //scale is screen-space divided by graph-space
+            this.scale = new SizeF(drawingArea.ClientSize.Width / x, drawingArea.ClientSize.Height / y);
             //origin is minus the min value (then converted to screen-space). y axis is flipped as always
-            SetOrigin((int)((float)-xMin.Value / this.scale.Width), drawingArea.ClientRectangle.Height - (int)((float)-yMin.Value / this.scale.Height));
+            SetOrigin((int)((float)-xMin.Value * this.scale.Width), drawingArea.ClientRectangle.Height - (int)((float)-yMin.Value * this.scale.Height));
+        }
+
+        private void drawingArea_MouseEnter(object sender, EventArgs e)
+        {
+            drawingArea.Focus();
+        }
+
+        private void DrawingArea_MouseWheel(object sender, MouseEventArgs e)
+        {
+            //Pow() is used so that a certain number of detents will always give the same scaling
+            float scale = (float)Math.Pow(1 + SCALING_FACTOR, e.Delta);
+
+            float scaleX = scale;
+            //holding shift scales Y only
+            if (ModifierKeys.HasFlag(Keys.Shift))
+                scaleX = 1;
+
+            float scaleY = scale;
+            //holding Ctrl scales X only
+            if (ModifierKeys.HasFlag(Keys.Control))
+                scaleY = 1;
+
+            ScaleAroundPoint(scaleX, scaleY, e.Location);
+
+            drawingArea.Invalidate();
+        }
+
+        private void ScaleAroundPoint(float factorX, float factorY, Point location)
+        {
+            this.scale = new SizeF(this.scale.Width * factorX, this.scale.Height * factorY);
+            SetOrigin((int)(location.X - ((location.X - origin.X) * factorX)), (int)(location.Y - (location.Y - origin.Y) * factorY));
+            drawingArea.Invalidate();
         }
     }
 }

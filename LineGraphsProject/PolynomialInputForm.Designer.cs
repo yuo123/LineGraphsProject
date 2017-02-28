@@ -43,6 +43,7 @@
             this.finish.TabIndex = 4;
             this.finish.Text = "Finish";
             this.finish.UseVisualStyleBackColor = true;
+            this.finish.Click += new System.EventHandler(this.finish_Click);
             // 
             // orderUpDown
             // 

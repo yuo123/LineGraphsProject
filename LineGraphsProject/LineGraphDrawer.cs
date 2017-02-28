@@ -41,24 +41,35 @@ namespace LineGraphsProject
             PointF[] range = new PointF[] { new PointF(0, 0), new PointF(drawingWidth, 0), new PointF(originX + 1, 0) };
             //World = graph, Page = form
             gr.TransformPoints(CoordinateSpace.World, CoordinateSpace.Page, range);
+
             //GraphicsPath is used to draw a continuous line
-            GraphicsPath graph = new GraphicsPath();
-            PointF last = new PointF(float.NaN, float.NaN);
-            Brush ptsBrush = new SolidBrush(this.color);
-            foreach (PointF point in this.provider.GetPoints(range[0].X, range[1].X, range[2].X))
+            GraphicsPath graph = null;
+            Brush ptsBrush = null;
+            Pen pen = null;
+            try
             {
-                if (!float.IsNaN(last.X) && point.X >= range[0].X && last.X <= range[1].X)
-                    graph.AddLine(last, point);
-                if (this.markPoints)
-                    gr.FillEllipse(ptsBrush, point.X - POINT_RADIUS, point.Y - POINT_RADIUS, POINT_RADIUS * 2, POINT_RADIUS * 2);
-                last = point;
+                graph = new GraphicsPath();
+                PointF last = new PointF(float.NaN, float.NaN);
+                ptsBrush = new SolidBrush(this.color);
+                foreach (PointF point in this.provider.GetPoints(range[0].X, range[1].X, range[2].X))
+                {
+                    if (!float.IsNaN(last.X) && point.X >= range[0].X && last.X <= range[1].X)
+                        graph.AddLine(last, point);
+                    if (this.markPoints)
+                        gr.FillEllipse(ptsBrush, point.X - POINT_RADIUS, point.Y - POINT_RADIUS, POINT_RADIUS * 2, POINT_RADIUS * 2);
+                    last = point;
+                }
+                //width is set to the average it needs to be (between the two axes) in order to be LINE_WIDTH
+                pen = new Pen(this.color, 2 * LINE_WIDTH / (Math.Abs(gr.Transform.Elements[0]) + Math.Abs(gr.Transform.Elements[1])));
+                gr.DrawPath(pen, graph);
             }
-            //width is set to the average it needs to be (between the two axes) in order to be LINE_WIDTH
-            Pen pen = new Pen(this.color, 2 * LINE_WIDTH / (Math.Abs(gr.Transform.Elements[0]) + Math.Abs(gr.Transform.Elements[1])));
-            gr.DrawPath(pen, graph);
-            pen.Dispose();
-            ptsBrush.Dispose();
-            graph.Dispose();
+            catch (OverflowException) { }
+            finally
+            {
+                pen.Dispose();
+                ptsBrush.Dispose();
+                graph.Dispose();
+            }
 
             gr.Restore(state);
         }

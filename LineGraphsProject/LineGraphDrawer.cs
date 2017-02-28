@@ -14,6 +14,7 @@ namespace LineGraphsProject
     public class LineGraphDrawer
     {
         private const int POINT_RADIUS = 5;
+        private const int LINE_WIDTH = 1;
 
         private ILineGraphProvider provider;
         private float scaleX;
@@ -52,7 +53,8 @@ namespace LineGraphsProject
                     gr.FillEllipse(ptsBrush, point.X - POINT_RADIUS, point.Y - POINT_RADIUS, POINT_RADIUS * 2, POINT_RADIUS * 2);
                 last = point;
             }
-            Pen pen = new Pen(this.color);
+            //width is set to the average it needs to be (between the two axes) in order to be LINE_WIDTH
+            Pen pen = new Pen(this.color, 2 * LINE_WIDTH / (Math.Abs(gr.Transform.Elements[0]) + Math.Abs(gr.Transform.Elements[1])));
             gr.DrawPath(pen, graph);
             pen.Dispose();
             ptsBrush.Dispose();

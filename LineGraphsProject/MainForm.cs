@@ -212,10 +212,10 @@ namespace LineGraphsProject
                 return;
             }
 
-            //scale is graph-space divided by screen-space
-            this.scale = new SizeF(x / drawingArea.ClientSize.Width, y / drawingArea.ClientSize.Height);
+            //scale is screen-space divided by graph-space
+            this.scale = new SizeF(drawingArea.ClientSize.Width / x, drawingArea.ClientSize.Height / y);
             //origin is minus the min value (then converted to screen-space). y axis is flipped as always
-            SetOrigin((int)((float)-xMin.Value / this.scale.Width), drawingArea.ClientRectangle.Height - (int)((float)-yMin.Value / this.scale.Height));
+            SetOrigin((int)((float)-xMin.Value * this.scale.Width), drawingArea.ClientRectangle.Height - (int)((float)-yMin.Value * this.scale.Height));
         }
 
         private void drawingArea_MouseEnter(object sender, EventArgs e)

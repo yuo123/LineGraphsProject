@@ -16,6 +16,7 @@ namespace LineGraphsProject
         public PathInputForm()
         {
             InitializeComponent();
+            this.DialogResult = DialogResult.Cancel;
         }
 
         public string GetPath()
@@ -28,7 +29,10 @@ namespace LineGraphsProject
             if (!File.Exists(this.pathBox.Text))
                 MessageBox.Show("File not found: " + this.pathBox.Text, "File Not Found");
             else
+            {
+                this.DialogResult = DialogResult.OK;
                 this.Close();
+            }
         }
 
         private void browseBtn_Click(object sender, EventArgs e)

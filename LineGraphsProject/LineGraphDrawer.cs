@@ -13,17 +13,22 @@ namespace LineGraphsProject
     /// </summary>
     public class LineGraphDrawer
     {
+        private const int POINT_RADIUS = 5;
+
         private ILineGraphProvider provider;
         private float scaleX;
         private float scaleY;
         private Color color;
+        //specifies whether points are marked with dots
+        private bool markPoints;
 
-        public LineGraphDrawer(ILineGraphProvider provider, float scaleX, float scaleY, Color color)
+        public LineGraphDrawer(ILineGraphProvider provider, float scaleX, float scaleY, Color color, bool markPoints)
         {
             this.provider = provider;
             this.color = color;
             this.scaleX = scaleX;
             this.scaleY = scaleY;
+            this.markPoints = markPoints;
         }
 
         public void Draw(Graphics gr, int drawingWidth, int originX)
@@ -38,13 +43,20 @@ namespace LineGraphsProject
             //GraphicsPath is used to draw a continuous line
             GraphicsPath graph = new GraphicsPath();
             PointF last = new PointF(float.NaN, float.NaN);
+            Brush ptsBrush = new SolidBrush(this.color);
             foreach (PointF point in this.provider.GetPoints(range[0].X, range[1].X, range[2].X))
             {
                 if (!float.IsNaN(last.X) && point.X >= range[0].X && last.X <= range[1].X)
                     graph.AddLine(last, point);
+                if (this.markPoints)
+                    gr.FillEllipse(ptsBrush, point.X - POINT_RADIUS, point.Y - POINT_RADIUS, POINT_RADIUS * 2, POINT_RADIUS * 2);
                 last = point;
             }
-            gr.DrawPath(new Pen(this.color), graph);
+            Pen pen = new Pen(this.color);
+            gr.DrawPath(pen, graph);
+            pen.Dispose();
+            ptsBrush.Dispose();
+
             gr.Restore(state);
         }
     }

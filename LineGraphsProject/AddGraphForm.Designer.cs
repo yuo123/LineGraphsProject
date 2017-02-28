@@ -183,7 +183,7 @@
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.sourceBox);
             this.Name = "AddGraphForm";
-            this.Text = "AddGraphForm";
+            this.Text = "Add Graph";
             ((System.ComponentModel.ISupportInitialize)(this.xScale)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yScale)).EndInit();
             this.ResumeLayout(false);

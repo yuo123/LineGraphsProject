@@ -81,7 +81,7 @@
             this.Controls.Add(this.orderUpDown);
             this.Controls.Add(this.finish);
             this.Name = "PolynomialInputForm";
-            this.Text = "PolynomialInputForm";
+            this.Text = "Polynomial Input";
             this.Load += new System.EventHandler(this.PolynomialInputForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.orderUpDown)).EndInit();
             this.ResumeLayout(false);

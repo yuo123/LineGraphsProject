@@ -36,6 +36,15 @@
             label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(51, 13);
+            label1.TabIndex = 2;
+            label1.Text = "File Path:";
+            // 
             // pathBox
             // 
             this.pathBox.Location = new System.Drawing.Point(69, 6);
@@ -53,15 +62,6 @@
             this.okBtn.Text = "Ok";
             this.okBtn.UseVisualStyleBackColor = true;
             this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(51, 13);
-            label1.TabIndex = 2;
-            label1.Text = "File Path:";
             // 
             // browseBtn
             // 
@@ -84,7 +84,7 @@
             this.Controls.Add(this.okBtn);
             this.Controls.Add(this.pathBox);
             this.Name = "PathInputForm";
-            this.Text = "PathInputForm";
+            this.Text = "File Selection";
             this.ResumeLayout(false);
             this.PerformLayout();
 

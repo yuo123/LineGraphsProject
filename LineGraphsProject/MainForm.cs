@@ -62,7 +62,7 @@ namespace LineGraphsProject
 
             //draw graphs
             foreach (LineGraphDrawer drawer in this.drawers)
-                drawer.Draw(e.Graphics, this.drawingArea.ClientSize.Width, origin.X);
+                drawer.Draw(e.Graphics, this.drawingArea.ClientSize, origin);
 
             e.Graphics.ResetTransform();
         }

@@ -32,13 +32,13 @@ namespace LineGraphsProject
             this.markPoints = markPoints;
         }
 
-        public void Draw(Graphics gr, int drawingWidth, int originX)
+        public void Draw(Graphics gr, Size drawingSize, Point origin)
         {
             GraphicsState state = gr.Save();
             gr.ScaleTransform(this.scaleX, this.scaleY);
             //find relevant X values in graph space
             //first point for minX, second for maxX, third for minDiscernableStep
-            PointF[] range = new PointF[] { new PointF(0, 0), new PointF(drawingWidth, 0), new PointF(originX + 1, 0) };
+            PointF[] range = new PointF[] { new PointF(0, drawingSize.Height), new PointF(drawingSize.Width, 0), new PointF(origin.X + 1, origin.Y + 1) };
             //World = graph, Page = form
             gr.TransformPoints(CoordinateSpace.World, CoordinateSpace.Page, range);
 
@@ -55,7 +55,8 @@ namespace LineGraphsProject
                 ptsBrush = new SolidBrush(this.color);
                 foreach (PointF point in this.provider.GetPoints(range[0].X, range[1].X, range[2].X))
                 {
-                    if (!float.IsNaN(last.X) && point.X >= range[0].X && last.X <= range[1].X)
+                    if (!float.IsNaN(last.X) && point.X >= range[0].X && last.X <= range[1].X
+                        && point.Y >= range[0].Y && point.Y <= range[1].Y)
                         graph.AddLine(last, point);
                     if (this.markPoints)
                         gr.FillEllipse(ptsBrush, point.X - POINT_RADIUS * scalingFactor, point.Y - POINT_RADIUS * scalingFactor, POINT_RADIUS * 2 * scalingFactor, POINT_RADIUS * 2 * scalingFactor);
@@ -64,7 +65,11 @@ namespace LineGraphsProject
                 pen = new Pen(this.color, scalingFactor * LINE_WIDTH);
                 gr.DrawPath(pen, graph);
             }
-            catch (OverflowException) { }
+            catch (OverflowException)
+            {
+                //OverflowException is thrown when a point is drawn too far out of the screen bounds.
+                //In that case, there is no need to do anything, since the point will not be visible anyway.
+            }
             finally
             {
                 pen.Dispose();
